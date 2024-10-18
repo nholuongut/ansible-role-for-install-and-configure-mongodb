@@ -1,0 +1,11 @@
+---
+rules:
+  exclude_files:
+    - molecule/ubuntu/tests
+    - README.md
+
+ansible:
+  custom_modules:
+    - mongodb_replication
+
+...

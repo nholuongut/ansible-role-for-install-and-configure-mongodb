@@ -1,0 +1,13 @@
+{{ mongodb_systemlog_path }} {
+	rotate {{ mongodb_logrotate_retention }}
+	daily
+	missingok
+	notifempty
+	compress
+	delaycompress
+	sharedscripts
+	create 755 mongodb mongodb
+	postrotate
+		kill -USR1 `cat /run/mongodb/mongod.pid 2>/dev/null` >/dev/null 2>&1
+	endscript
+}
